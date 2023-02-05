@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12sp"
+        android:background="@color/white"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12sp"
+            android:background="@drawable/bg_gradient">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/container"
+                app:layout_constraintStart_toStartOf="@id/container"
+                app:layout_constraintBottom_toBottomOf="@id/container">
+
+                <ImageView
+                    android:id="@+id/item_favorite_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/bg_circle"
+                    app:layout_constraintBottom_toBottomOf="@id/constraint_image"
+                    app:layout_constraintEnd_toEndOf="@id/constraint_image"
+                    app:layout_constraintStart_toStartOf="@id/constraint_image"
+                    app:layout_constraintTop_toTopOf="@id/constraint_image" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/container"
+                app:layout_constraintStart_toEndOf="@+id/constraint_image"
+                app:layout_constraintTop_toTopOf="@id/container">
+
+                <TextView
+                    android:id="@+id/item_favorite_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightGray"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/constraint_name"
+                    app:layout_constraintEnd_toEndOf="@id/constraint_name"
+                    app:layout_constraintStart_toStartOf="@id/constraint_name"
+                    app:layout_constraintTop_toTopOf="@id/constraint_name"
+                    tools:text="@string/john_senna" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@id/constraint_name"
+                app:layout_constraintStart_toStartOf="@+id/constraint_name"
+                app:layout_constraintTop_toBottomOf="@id/constraint_name">
+
+                <ImageView
+                    android:id="@+id/icon_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_location_on_24"
+                    app:layout_constraintBottom_toBottomOf="@id/constraint_location"
+                    app:layout_constraintStart_toStartOf="@id/constraint_location"
+                    app:layout_constraintTop_toTopOf="@id/constraint_location"
+                    app:tint="@color/lightGray" />
+                <TextView
+                    android:id="@+id/item_favorite_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightGray"
+                    android:textSize="20sp"
+                    android:layout_marginStart="8sp"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_location"
+                    app:layout_constraintStart_toEndOf="@id/icon_location"
+                    app:layout_constraintTop_toTopOf="@id/icon_location"
+                    tools:text="Iran,Tehran" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_organization"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@id/constraint_location"
+                app:layout_constraintStart_toStartOf="@+id/constraint_location"
+                app:layout_constraintTop_toBottomOf="@id/constraint_location">
+
+                <ImageView
+                    android:id="@+id/icon_organization"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_corporate_fare_24"
+                    app:layout_constraintBottom_toBottomOf="@id/constraint_organization"
+                    app:layout_constraintStart_toStartOf="@id/constraint_organization"
+                    app:layout_constraintTop_toTopOf="@id/constraint_organization"
+                    app:tint="@color/lightGray" />
+                <TextView
+                    android:id="@+id/item_favorite_organization"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightGray"
+                    android:textSize="20sp"
+                    android:layout_marginStart="8sp"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_organization"
+                    app:layout_constraintStart_toEndOf="@id/icon_organization"
+                    app:layout_constraintTop_toTopOf="@id/icon_organization"
+                    tools:text="Snapp!" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12sp"
+                app:layout_constraintEnd_toEndOf="@id/constraint_organization"
+                app:layout_constraintStart_toStartOf="@+id/constraint_organization"
+                app:layout_constraintTop_toBottomOf="@id/constraint_organization">
+
+                <TextView
+                    android:id="@+id/item_txt_favorite_follower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/follower"
+                    android:textColor="@color/lightGray"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="12sp"
+                    app:layout_constraintEnd_toStartOf="@+id/item_txt_favorite_following"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@id/constraint_status"
+                    app:layout_constraintTop_toTopOf="@id/constraint_status" />
+
+                <TextView
+                    android:id="@+id/item_number_favorite_follower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightGray"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/item_txt_favorite_follower"
+                    app:layout_constraintStart_toStartOf="@+id/item_txt_favorite_follower"
+                    app:layout_constraintTop_toBottomOf="@id/item_txt_favorite_follower"
+                    tools:text="4" />
+
+                <TextView
+                    android:id="@+id/item_txt_favorite_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/following"
+                    android:textColor="@color/lightGray"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="12sp"
+                    app:layout_constraintEnd_toStartOf="@+id/item_txt_favorite_repository"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/item_txt_favorite_follower"
+                    app:layout_constraintTop_toTopOf="@id/constraint_status" />
+
+                <TextView
+                    android:id="@+id/item_number_favorite_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="۰dp"
+                    android:textColor="@color/lightGray"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/item_txt_favorite_following"
+                    app:layout_constraintStart_toStartOf="@+id/item_txt_favorite_following"
+                    app:layout_constraintTop_toBottomOf="@+id/item_txt_favorite_following"
+                    tools:text="4" />
+
+                <TextView
+                    android:id="@+id/item_txt_favorite_repository"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/repository"
+                    android:textColor="@color/lightGray"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/constraint_status"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/item_txt_favorite_following"
+                    app:layout_constraintTop_toTopOf="@id/constraint_status" />
+
+                <TextView
+                    android:id="@+id/item_number_favorite_repository"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightGray"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/item_txt_favorite_repository"
+                    app:layout_constraintStart_toStartOf="@+id/item_txt_favorite_repository"
+                    app:layout_constraintTop_toBottomOf="@+id/item_txt_favorite_repository"
+                    tools:text="4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

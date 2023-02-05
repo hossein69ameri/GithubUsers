@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/favoriteMenu"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        app:iconTint="@color/lightPink"
+        android:title=""
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/settingMenu"
+        android:icon="@drawable/ic_baseline_settings_24"
+        app:iconTint="@color/lightGray"
+        android:title=""
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/languageMenu"
+        android:icon="@drawable/ic_baseline_language_24"
+        app:iconTint="@color/lightGray"
+        android:title=""
+        app:showAsAction="always" />
+</menu>
