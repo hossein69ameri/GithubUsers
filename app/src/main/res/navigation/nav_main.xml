@@ -15,4 +15,9 @@
         android:name="com.example.githubusers.ui.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.githubusers.ui.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>

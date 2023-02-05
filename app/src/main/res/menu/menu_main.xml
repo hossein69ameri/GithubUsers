@@ -4,7 +4,7 @@
     <item
         android:id="@+id/favoriteMenu"
         android:icon="@drawable/ic_baseline_favorite_24"
-        app:iconTint="@color/lightGray"
+        app:iconTint="@color/lightPink"
         android:title=""
         app:showAsAction="always" />
 

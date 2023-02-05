@@ -5,4 +5,8 @@
     <string name="githubUsers">GithubUsers</string>
     <string name="search_some_user">Search Some User</string>
     <string name="no_data_available">No Data Available</string>
+    <string name="john_senna">john senna</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+    <string name="repository">Repository</string>
 </resources>
