@@ -1,10 +1,8 @@
 package com.example.githubusers.ui.detail
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
@@ -18,10 +16,10 @@ import com.example.githubusers.util.const.FOLLOWER
 import com.example.githubusers.util.const.FOLLOWING
 import com.example.githubusers.util.const.USERNAME
 import com.example.githubusers.viewmodel.detail.DetailViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
@@ -38,7 +36,8 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //init toolbar
-
+        setHasOptionsMenu(true)
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbarDetail)
         //init tabLayout an viewPager
         val tabTitle = arrayOf(FOLLOWER, FOLLOWING)
         val pagerAdapter = PagerAdapter(requireActivity().supportFragmentManager, lifecycle)
@@ -74,8 +73,16 @@ class DetailFragment : Fragment() {
                 }
             }
         }
-
-
     }
 
+    @Deprecated("Deprecated in Java")
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_detail,menu)
+        val favorite = menu.findItem(R.id.favoriteMenu_detail)
+        favorite.setOnMenuItemClickListener {
+            Snackbar.make(binding.root,"Favorite", Snackbar.LENGTH_SHORT).show()
+            true
+        }
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 }

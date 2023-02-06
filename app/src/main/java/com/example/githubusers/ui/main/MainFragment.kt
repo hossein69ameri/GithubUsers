@@ -6,7 +6,6 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubusers.R
 import com.example.githubusers.databinding.FragmentMainBinding
 import com.example.githubusers.util.NetworkResult
-import com.example.githubusers.util.const.TOKEN
 import com.example.githubusers.util.extention.setupRecyclerView
 import com.example.githubusers.util.extention.visibilityLoading
 import com.example.githubusers.viewmodel.main.MainViewModel
@@ -88,7 +86,7 @@ class MainFragment : Fragment() {
     @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_main,menu)
-        val favorite = menu.findItem(R.id.favoriteMenu)
+        val favorite = menu.findItem(R.id.favoriteMenu_main)
         favorite.setOnMenuItemClickListener {
             Snackbar.make(binding.root,"Favorite",Snackbar.LENGTH_SHORT).show()
             true
