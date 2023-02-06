@@ -14,6 +14,7 @@ import com.example.githubusers.R
 import com.example.githubusers.databinding.FragmentDetailBinding
 import com.example.githubusers.util.NetworkResult
 import com.example.githubusers.viewmodel.detail.DetailViewModel
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
@@ -25,18 +26,19 @@ class DetailFragment : Fragment() {
     private val args: DetailFragmentArgs by navArgs()
     private var userName = ""
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentDetailBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        //
+        val tabTitle = arrayOf("Follower", "Following")
+        val pagerAdapter = PagerAdapter(requireActivity().supportFragmentManager, lifecycle)
+        binding.detailViewPager2.adapter = pagerAdapter
+        TabLayoutMediator(binding.detailTabLayout, binding.detailViewPager2) { tab, position -> tab.text = tabTitle[position] }.attach()
+        //
         userName = args.detailUsername
         detailViewModel.detailUser(userName)
         lifecycleScope.launchWhenCreated {
