@@ -38,9 +38,9 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        //show empty state
         binding.emptyMain.visibilityLoading(true,binding.recyclerMain)
-
+        //searchBar
         binding.searchUser.addTextChangedListener {
             if (it.toString().isNotEmpty()){
                 binding.emptyMain.visibilityLoading(false,binding.recyclerMain)
@@ -49,6 +49,7 @@ class MainFragment : Fragment() {
                 binding.emptyMain.visibilityLoading(true,binding.recyclerMain)
             }
         }
+        //display data
         lifecycleScope.launchWhenCreated {
             mainViewModel.stateSearch.collectLatest {
                 if (it != null) {
@@ -56,6 +57,7 @@ class MainFragment : Fragment() {
                         NetworkResult.Status.SUCCESS -> {
                             if (it.data != null) {
                                 it.data.items?.let { itData ->
+                                    Log.e("TAG", "${itData.size}", )
                                     mainAdapter.setData(itData)
                                     binding.recyclerMain.setupRecyclerView(LinearLayoutManager(requireContext()), mainAdapter)
                                 }

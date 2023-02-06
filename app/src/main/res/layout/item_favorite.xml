@@ -47,7 +47,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraint_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="@id/container"
                 app:layout_constraintStart_toEndOf="@+id/constraint_image"
@@ -55,11 +55,14 @@
 
                 <TextView
                     android:id="@+id/item_favorite_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/lightGray"
                     android:textSize="24sp"
                     android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="@id/constraint_name"
                     app:layout_constraintEnd_toEndOf="@id/constraint_name"
                     app:layout_constraintStart_toStartOf="@id/constraint_name"

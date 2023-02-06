@@ -13,6 +13,9 @@ import coil.load
 import com.example.githubusers.R
 import com.example.githubusers.databinding.FragmentDetailBinding
 import com.example.githubusers.util.NetworkResult
+import com.example.githubusers.util.const.FOLLOWER
+import com.example.githubusers.util.const.FOLLOWING
+import com.example.githubusers.util.const.USERNAME
 import com.example.githubusers.viewmodel.detail.DetailViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,14 +36,17 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //
-        val tabTitle = arrayOf("Follower", "Following")
+        //init tabLayout an viewPager
+        val tabTitle = arrayOf(FOLLOWER, FOLLOWING)
         val pagerAdapter = PagerAdapter(requireActivity().supportFragmentManager, lifecycle)
         binding.detailViewPager2.adapter = pagerAdapter
         TabLayoutMediator(binding.detailTabLayout, binding.detailViewPager2) { tab, position -> tab.text = tabTitle[position] }.attach()
-        //
+        //get userName
         userName = args.detailUsername
+        USERNAME = userName
+        //call api
         detailViewModel.detailUser(userName)
+        //display data
         lifecycleScope.launchWhenCreated {
             detailViewModel.stateDetail.collectLatest {
                 if (it != null) {

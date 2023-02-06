@@ -1,6 +1,6 @@
 package com.example.githubusers.di
 
-import com.example.githubusers.data.remote.ApiServises
+import com.example.githubusers.data.remote.ApiServices
 import com.example.githubusers.util.const.BASE_URL
 import com.example.githubusers.util.const.TIME_NETWORK
 import com.google.gson.Gson
@@ -53,13 +53,13 @@ object ApiModule {
 
         @Provides
         @Singleton
-        fun provideRetrofit(baseUrl: String, client: OkHttpClient, gson: Gson): ApiServises =
+        fun provideRetrofit(baseUrl: String, client: OkHttpClient, gson: Gson): ApiServices =
             Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
-                .create(ApiServises::class.java)
+                .create(ApiServices::class.java)
 
     }
 }

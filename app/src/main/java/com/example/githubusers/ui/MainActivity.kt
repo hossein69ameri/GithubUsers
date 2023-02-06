@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        //init navHost
         navHostFragment = supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment
 
     }

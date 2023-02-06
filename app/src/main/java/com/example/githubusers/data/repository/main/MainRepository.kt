@@ -1,9 +1,11 @@
 package com.example.githubusers.data.repository.main
 
 import com.example.githubusers.data.model.ResponseUsers
-import com.example.githubusers.data.remote.ApiServises
+import com.example.githubusers.data.remote.ApiServices
 import com.example.githubusers.util.NetworkResult
-import com.example.githubusers.util.const.TOKEN
+import com.example.githubusers.util.const.NOT_MODIFIED
+import com.example.githubusers.util.const.SERVICE_UNAVAILABLE
+import com.example.githubusers.util.const.VALIDATION_FAILED
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -11,22 +13,22 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class MainRepository @Inject constructor(private val apiServises: ApiServises) {
+class MainRepository @Inject constructor(private val apiServices: ApiServices) {
 
     suspend fun searchUsers(query: String): Flow<NetworkResult<ResponseUsers>> {
         return flow {
-            when (apiServises.searchUsers(query).code()) {
+            when (apiServices.searchUsers(query).code()) {
                 200 -> {
-                    emit(NetworkResult.success(apiServises.searchUsers(query).body()))
+                    emit(NetworkResult.success(apiServices.searchUsers(query).body()))
                 }
                 304 -> {
-                    emit(NetworkResult.error("Not modified"))
+                    emit(NetworkResult.error(NOT_MODIFIED))
                 }
                 422 -> {
-                    emit(NetworkResult.error("Validation failed, or the endpoint has been spammed."))
+                    emit(NetworkResult.error(VALIDATION_FAILED))
                 }
                 503 -> {
-                    emit(NetworkResult.error("Service unavailable"))
+                    emit(NetworkResult.error(SERVICE_UNAVAILABLE))
                 }
             }
         }
