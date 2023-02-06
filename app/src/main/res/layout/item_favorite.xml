@@ -33,15 +33,26 @@
                 app:layout_constraintStart_toStartOf="@id/container"
                 app:layout_constraintBottom_toBottomOf="@id/container">
 
-                <ImageView
-                    android:id="@+id/item_favorite_image"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/bg_circle"
+                    app:cardCornerRadius="100dp"
                     app:layout_constraintBottom_toBottomOf="@id/constraint_image"
                     app:layout_constraintEnd_toEndOf="@id/constraint_image"
                     app:layout_constraintStart_toStartOf="@id/constraint_image"
-                    app:layout_constraintTop_toTopOf="@id/constraint_image" />
+                    app:layout_constraintTop_toTopOf="@id/constraint_image">
+
+                    <ImageView
+                        android:id="@+id/item_favorite_image"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        tools:src="@tools:sample/backgrounds/scenic"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center"/>
+
+                </androidx.cardview.widget.CardView>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -70,9 +81,10 @@
                     tools:text="@string/john_senna" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraint_location"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="@id/constraint_name"
@@ -85,25 +97,35 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_location_on_24"
                     app:layout_constraintBottom_toBottomOf="@id/constraint_location"
-                    app:layout_constraintStart_toStartOf="@id/constraint_location"
+                    app:layout_constraintEnd_toStartOf="@+id/item_favorite_location"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/constraint_location"
                     app:tint="@color/lightGray" />
+
                 <TextView
                     android:id="@+id/item_favorite_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8sp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
                     android:textColor="@color/lightGray"
                     android:textSize="20sp"
-                    android:layout_marginStart="8sp"
                     app:layout_constraintBottom_toBottomOf="@id/icon_location"
-                    app:layout_constraintStart_toEndOf="@id/icon_location"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/icon_location"
                     app:layout_constraintTop_toTopOf="@id/icon_location"
                     tools:text="Iran,Tehran" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraint_organization"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="@id/constraint_location"
@@ -116,18 +138,27 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_corporate_fare_24"
                     app:layout_constraintBottom_toBottomOf="@id/constraint_organization"
-                    app:layout_constraintStart_toStartOf="@id/constraint_organization"
+                    app:layout_constraintEnd_toStartOf="@+id/item_favorite_organization"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/constraint_organization"
                     app:tint="@color/lightGray" />
+
                 <TextView
                     android:id="@+id/item_favorite_organization"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8sp"
                     android:textColor="@color/lightGray"
                     android:textSize="20sp"
-                    android:layout_marginStart="8sp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
                     app:layout_constraintBottom_toBottomOf="@id/icon_organization"
-                    app:layout_constraintStart_toEndOf="@id/icon_organization"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/icon_organization"
                     app:layout_constraintTop_toTopOf="@id/icon_organization"
                     tools:text="Snapp!" />
 

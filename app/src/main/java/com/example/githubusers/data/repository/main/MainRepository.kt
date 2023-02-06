@@ -17,19 +17,8 @@ class MainRepository @Inject constructor(private val apiServices: ApiServices) {
 
     suspend fun searchUsers(query: String): Flow<NetworkResult<ResponseUsers>> {
         return flow {
-            when (apiServices.searchUsers(query).code()) {
-                200 -> {
-                    emit(NetworkResult.success(apiServices.searchUsers(query).body()))
-                }
-                304 -> {
-                    emit(NetworkResult.error(NOT_MODIFIED))
-                }
-                422 -> {
-                    emit(NetworkResult.error(VALIDATION_FAILED))
-                }
-                503 -> {
-                    emit(NetworkResult.error(SERVICE_UNAVAILABLE))
-                }
+            if (apiServices.searchUsers(query).isSuccessful) {
+                emit(NetworkResult.success(apiServices.searchUsers(query).body()))
             }
         }
             .catch { emit(NetworkResult.error(it.message.toString())) }

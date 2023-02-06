@@ -21,27 +21,35 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/eggPlant"
-            app:menu="@menu/menu_main"
             app:title="GithubUsers"
             app:titleTextColor="@color/lightGray" />
 
-        <EditText
-            android:id="@+id/searchUser"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="18sp"
-            android:background="@drawable/bg_rounded"
-            android:drawableStart="@drawable/ic_baseline_search_24"
-            android:drawablePadding="15dp"
-            android:hint="@string/search_some_user"
-            android:maxLines="1"
-            android:padding="13dp"
-            android:textColorHint="@color/quickSilver"
-            app:drawableTint="@color/quickSilver"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            app:hintEnabled="false"
+            app:endIconDrawable="@drawable/ic_baseline_close_24"
+            app:boxBackgroundMode="none"
+            app:endIconMode="clear_text">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchUser"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="18sp"
+                android:background="@drawable/bg_rounded"
+                android:drawableStart="@drawable/ic_baseline_search_24"
+                android:drawablePadding="15dp"
+                android:hint="@string/search_some_user"
+                android:maxLines="1"
+                android:padding="13dp"
+                android:textColorHint="@color/quickSilver"
+                app:drawableTint="@color/quickSilver"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
     </com.google.android.material.appbar.AppBarLayout>
 

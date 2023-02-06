@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
@@ -36,6 +37,8 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //init toolbar
+
         //init tabLayout an viewPager
         val tabTitle = arrayOf(FOLLOWER, FOLLOWING)
         val pagerAdapter = PagerAdapter(requireActivity().supportFragmentManager, lifecycle)
