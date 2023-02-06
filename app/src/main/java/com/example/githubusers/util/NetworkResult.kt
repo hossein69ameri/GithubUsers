@@ -2,7 +2,7 @@ package com.example.githubusers.util
 
 class NetworkResult<out T>(val status: Status, val data: T? = null, val message: String? = null) {
 
-    enum class Status { LOADING, SUCCESS, ERROR }
+    enum class Status { SUCCESS, ERROR }
 
     companion object {
 

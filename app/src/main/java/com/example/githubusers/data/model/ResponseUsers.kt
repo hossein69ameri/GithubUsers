@@ -7,7 +7,7 @@ data class ResponseUsers(
     @SerializedName("incomplete_results")
     val incompleteResults: Boolean?, // false
     @SerializedName("items")
-    val items: List<Item?>?,
+    val items: List<Item>?,
     @SerializedName("total_count")
     val totalCount: Int? // 1
 ) {

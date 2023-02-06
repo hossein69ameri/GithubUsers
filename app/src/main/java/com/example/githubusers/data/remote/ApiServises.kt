@@ -10,10 +10,10 @@ import retrofit2.http.Query
 
 interface ApiServises {
 
+    @Headers("Accept: application/vnd.github+json")
     @GET("/search/users")
-    @Headers("Accept:application/vnd.github+json")
     suspend fun searchUsers(
-        @Query("q") query: String,
-        @Header("authorization") auth: String = TOKEN
+        @Header("Authorization") auth : String = TOKEN,
+        @Query("q") username:String
     ): Response<ResponseUsers>
 }
