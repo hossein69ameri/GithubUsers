@@ -8,15 +8,12 @@ import retrofit2.http.*
 
 interface ApiServises {
 
-    @Headers("Accept: application/vnd.github+json")
     @GET("/search/users")
     suspend fun searchUsers(
-        @Header("Authorization") auth : String = TOKEN,
         @Query("q") username:String
     ): Response<ResponseUsers>
 
 
-    @Headers("Accept: application/vnd.github+json")
     @GET("/users/{username}")
     suspend fun detailUser(@Path("username") username:String): Response<ResponseDetail>
 }

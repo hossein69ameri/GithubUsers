@@ -18,8 +18,8 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
     private val _stateSearch : MutableStateFlow<NetworkResult<ResponseUsers>?> = MutableStateFlow(null)
     val stateSearch = _stateSearch.asStateFlow()
 
-    fun searchUsers(auth : String , query : String) = viewModelScope.launch {
-        mainRepository.searchUsers(auth,query).collect{
+    fun searchUsers(query : String) = viewModelScope.launch {
+        mainRepository.searchUsers(query).collect{
             _stateSearch.value = it
         }
     }

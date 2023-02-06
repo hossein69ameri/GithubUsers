@@ -13,11 +13,11 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(private val apiServises: ApiServises) {
 
-    suspend fun searchUsers(auth : String , query: String): Flow<NetworkResult<ResponseUsers>> {
+    suspend fun searchUsers(query: String): Flow<NetworkResult<ResponseUsers>> {
         return flow {
-            when (apiServises.searchUsers(auth,query).code()) {
+            when (apiServises.searchUsers(query).code()) {
                 200 -> {
-                    emit(NetworkResult.success(apiServises.searchUsers(auth,query).body()))
+                    emit(NetworkResult.success(apiServises.searchUsers(query).body()))
                 }
                 304 -> {
                     emit(NetworkResult.error("Not modified"))

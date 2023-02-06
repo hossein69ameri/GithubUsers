@@ -26,9 +26,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
-
     private val mainViewModel: MainViewModel by viewModels()
-
     @Inject
     lateinit var mainAdapter: MainAdapter
 
@@ -40,8 +38,16 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.emptyMain.visibilityLoading(true,binding.recyclerMain)
+
         binding.searchUser.addTextChangedListener {
-            mainViewModel.searchUsers(auth = TOKEN, it.toString())
+            if (it.toString().isNotEmpty()){
+                binding.emptyMain.visibilityLoading(false,binding.recyclerMain)
+                mainViewModel.searchUsers(it.toString())
+            }else {
+                binding.emptyMain.visibilityLoading(true,binding.recyclerMain)
+            }
         }
         lifecycleScope.launchWhenCreated {
             mainViewModel.stateSearch.collectLatest {
@@ -51,11 +57,7 @@ class MainFragment : Fragment() {
                             if (it.data != null) {
                                 it.data.items?.let { itData ->
                                     mainAdapter.setData(itData)
-                                    binding.recyclerMain.setupRecyclerView(
-                                        LinearLayoutManager(
-                                            requireContext()
-                                        ), mainAdapter
-                                    )
+                                    binding.recyclerMain.setupRecyclerView(LinearLayoutManager(requireContext()), mainAdapter)
                                 }
                             }
                         }

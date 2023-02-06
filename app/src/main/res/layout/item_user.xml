@@ -24,15 +24,26 @@
             android:padding="12sp"
             android:background="@drawable/bg_gradient">
 
-            <ImageView
-                android:id="@+id/item_user_image"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="12sp"
-                android:src="@drawable/bg_circle"
+                app:cardCornerRadius="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/item_user_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:src="@tools:sample/backgrounds/scenic"
+                    android:background="@drawable/bg_circle"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"/>
+
+            </androidx.cardview.widget.CardView>
+
 
             <TextView
                 android:id="@+id/item_user_name"
@@ -42,9 +53,9 @@
                 android:textColor="@color/lightGray"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/item_user_image"
-                app:layout_constraintStart_toEndOf="@+id/item_user_image"
-                app:layout_constraintTop_toTopOf="@+id/item_user_image"
+                app:layout_constraintBottom_toBottomOf="@id/card"
+                app:layout_constraintStart_toEndOf="@id/card"
+                app:layout_constraintTop_toTopOf="@id/card"
                 tools:text="@string/john_senna" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
