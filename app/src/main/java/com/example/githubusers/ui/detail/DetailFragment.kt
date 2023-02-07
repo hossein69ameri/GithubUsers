@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.githubusers.R
@@ -27,6 +28,7 @@ class DetailFragment : Fragment() {
     private val detailViewModel: DetailViewModel by viewModels()
     private val args: DetailFragmentArgs by navArgs()
     private var userName = ""
+    private var profile = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentDetailBinding.inflate(layoutInflater)
@@ -35,19 +37,25 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //init toolbar
-        setHasOptionsMenu(true)
-        (activity as AppCompatActivity).setSupportActionBar(binding.toolbarDetail)
-        //init tabLayout an viewPager
-        val tabTitle = arrayOf(FOLLOWER, FOLLOWING)
-        val pagerAdapter = PagerAdapter(requireActivity().supportFragmentManager, lifecycle)
-        binding.detailViewPager2.adapter = pagerAdapter
-        TabLayoutMediator(binding.detailTabLayout, binding.detailViewPager2) { tab, position -> tab.text = tabTitle[position] }.attach()
         //get userName
         userName = args.detailUsername
         USERNAME = userName
         //call api
         detailViewModel.detailUser(userName)
+        //init toolbar
+        setHasOptionsMenu(true)
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbarDetail)
+        binding.toolbarDetail.apply {
+            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+            setNavigationOnClickListener {
+                findNavController().navigateUp()
+            }
+        }
+        //init tabLayout an viewPager
+        val tabTitle = arrayOf(FOLLOWER, FOLLOWING)
+        val pagerAdapter = PagerAdapter(requireActivity().supportFragmentManager, lifecycle)
+        binding.detailViewPager2.adapter = pagerAdapter
+        TabLayoutMediator(binding.detailTabLayout, binding.detailViewPager2) { tab, position -> tab.text = tabTitle[position] }.attach()
         //display data
         lifecycleScope.launchWhenCreated {
             detailViewModel.stateDetail.collectLatest {
@@ -58,6 +66,7 @@ class DetailFragment : Fragment() {
                                 binding.apply {
                                     imageDetail.load(itData.avatarUrl)
                                     detailName.text = itData.name
+                                    profile = itData.name.toString()
                                     detailBio.text = itData.bio
                                     detailNumberFollower.text = itData.followers.toString()
                                     detailNumberFollowing.text = itData.following.toString()
@@ -73,6 +82,8 @@ class DetailFragment : Fragment() {
                 }
             }
         }
+        //set name toolbar
+        binding.toolbarDetail.title = "$profile's Profile"
     }
 
     @Deprecated("Deprecated in Java")

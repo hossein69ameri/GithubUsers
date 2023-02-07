@@ -17,14 +17,8 @@ class DetailRepository @Inject constructor(private val apiServices: ApiServices)
 
     suspend fun detailUser(username: String): Flow<NetworkResult<ResponseDetail>> {
         return flow {
-            when (apiServices.detailUser(username).code()) {
-                200 -> {
+            if (apiServices.detailUser(username).isSuccessful) {
                     emit(NetworkResult.success(apiServices.detailUser(username).body()))
-                }
-
-                404 -> {
-                    emit(NetworkResult.error(RECOURSE_NOT_FOUND))
-                }
             }
         }
             .catch { emit(NetworkResult.error(it.message.toString())) }
@@ -33,14 +27,8 @@ class DetailRepository @Inject constructor(private val apiServices: ApiServices)
 
     suspend fun followersUser(username: String): Flow<NetworkResult<ResponseFollowers>> {
         return flow {
-            when (apiServices.followersList(username).code()) {
-                200 -> {
+            if (apiServices.followersList(username).isSuccessful) {
                     emit(NetworkResult.success(apiServices.followersList(username).body()))
-                }
-
-                404 -> {
-                    emit(NetworkResult.error(RECOURSE_NOT_FOUND))
-                }
             }
         }
             .catch { emit(NetworkResult.error(it.message.toString())) }
@@ -49,14 +37,8 @@ class DetailRepository @Inject constructor(private val apiServices: ApiServices)
 
     suspend fun followingUser(username: String): Flow<NetworkResult<ResponseFollowing>> {
         return flow {
-            when (apiServices.followingList(username).code()) {
-                200 -> {
+            if (apiServices.followingList(username).isSuccessful) {
                     emit(NetworkResult.success(apiServices.followingList(username).body()))
-                }
-
-                404 -> {
-                    emit(NetworkResult.error(RECOURSE_NOT_FOUND))
-                }
             }
         }
             .catch { emit(NetworkResult.error(it.message.toString())) }

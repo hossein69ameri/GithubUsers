@@ -11,6 +11,8 @@
         <entry key="..\:/Users/IDEHAL/AndroidStudioProjects/GithubUsers/app/src/main/res/drawable/bg_rounded.xml" value="0.176" />
         <entry key="..\:/Users/IDEHAL/AndroidStudioProjects/GithubUsers/app/src/main/res/drawable/bg_tab.xml" value="0.1935" />
         <entry key="..\:/Users/IDEHAL/AndroidStudioProjects/GithubUsers/app/src/main/res/drawable/bg_tab2.xml" value="0.1935" />
+        <entry key="..\:/Users/IDEHAL/AndroidStudioProjects/GithubUsers/app/src/main/res/drawable/bg_tab_unselect.xml" value="0.1" />
+        <entry key="..\:/Users/IDEHAL/AndroidStudioProjects/GithubUsers/app/src/main/res/drawable/bg_tag_selector.xml" value="0.1" />
         <entry key="..\:/Users/IDEHAL/AndroidStudioProjects/GithubUsers/app/src/main/res/layout/activity_main.xml" value="0.2740740740740741" />
         <entry key="..\:/Users/IDEHAL/AndroidStudioProjects/GithubUsers/app/src/main/res/layout/fragment_detail.xml" value="0.30648148148148147" />
         <entry key="..\:/Users/IDEHAL/AndroidStudioProjects/GithubUsers/app/src/main/res/layout/fragment_favorite.xml" value="0.30648148148148147" />
