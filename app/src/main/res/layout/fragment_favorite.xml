@@ -37,7 +37,7 @@
         android:ellipsize="end"
         android:gravity="center"
         android:text="@string/empty_usersList"
-        android:textColor="@color/lightGray"
+        android:textColor="@color/eggPlant"
         android:textSize="20sp"
         android:textStyle="bold"
         android:visibility="gone"

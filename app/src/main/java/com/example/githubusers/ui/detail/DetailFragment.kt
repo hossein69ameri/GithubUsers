@@ -72,6 +72,7 @@ class DetailFragment : Fragment() {
                         NetworkResult.Status.SUCCESS -> {
                             it.data?.let { itData ->
                                 entity.id = itData.id!!.toInt()
+                                entity.login = itData.login.toString()
                                 entity.bio = itData.bio.toString()
                                 entity.name = itData.name.toString()
                                 entity.following = itData.following.toString()

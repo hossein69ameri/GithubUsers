@@ -46,20 +46,39 @@ class FavoriteFragment : Fragment() {
        favoriteViewModel.usersList()
         lifecycleScope.launchWhenStarted {
             favoriteViewModel.stateList.collectLatest {
-                if (it != null){
-                    if (it.isEmpty){
-                            binding.favoriteEmpty.visibilityLoading(true,binding.favoriteRecycler)
-                    } else {
-                        binding.favoriteEmpty.visibilityLoading(false,binding.favoriteRecycler)
-                        favoriteAdapter.setData(it.data!!)
-                        binding.favoriteRecycler.setupRecyclerView(LinearLayoutManager(requireContext()),favoriteAdapter)
-                    }
+                if (it != null) {
+                    showEmptyRent(it.isEmpty)
                 }
+                if (it != null) {
+                    it.data?.let { it1 -> favoriteAdapter.setData(it1) }
+                }
+                binding.favoriteRecycler.apply {
+                    layoutManager = LinearLayoutManager(requireContext())
+                    adapter = favoriteAdapter
 
+                }
             }
+        }
+        //click
+        favoriteAdapter.setOnItemClickListener {
+            val direction = FavoriteFragmentDirections.actionMainFragmentToDetailFragment(it.login,it.id)
+            findNavController().navigate(direction)
         }
 
     }
+
+    private fun showEmptyRent(empty: Boolean) {
+        binding.apply {
+            if (empty) {
+                favoriteEmpty.visibility = View.VISIBLE
+                favoriteRecycler.visibility = View.GONE
+            } else {
+                favoriteEmpty.visibility = View.GONE
+                favoriteRecycler.visibility = View.VISIBLE
+            }
+        }
+    }
+
 
     @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

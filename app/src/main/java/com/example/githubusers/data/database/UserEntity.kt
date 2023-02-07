@@ -9,6 +9,7 @@ data class UserEntity(
     @PrimaryKey
     var id: Int = 0,
     var name: String = "",
+    var login: String = "",
     var location: String = "",
     var bio: String = "",
     var follower: String = "",
