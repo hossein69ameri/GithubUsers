@@ -39,7 +39,6 @@ class FollowerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //get userName
         var username = USERNAME
-        Log.e("TAG", "$username", )
         //cal api
         detailViewModel.followerslUser(username)
         //display data
@@ -51,15 +50,10 @@ class FollowerFragment : Fragment() {
                             if (it.data != null) {
                                     followerAdapter.setData(it.data)
                                     binding.recyclerFollower.setupRecyclerView(LinearLayoutManager(requireContext()), followerAdapter)
-
                             }
                         }
                         NetworkResult.Status.ERROR -> {
-                            Toast.makeText(
-                                requireContext(),
-                                it.message.toString(),
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

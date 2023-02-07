@@ -14,7 +14,7 @@ interface UserDao {
     suspend fun deleteUser(entity: UserEntity)
 
     @Query("SELECT * FROM $TABLE_USERS")
-    fun getAllUsers(): Flow<MutableList<UserEntity>>
+    fun getAllUsers(): Flow<List<UserEntity>>
 
     @Query("SELECT EXISTS (SELECT 1 FROM $TABLE_USERS WHERE id = :id)")
     fun existsUser(id: Int): Flow<Boolean>

@@ -11,5 +11,7 @@ const val SERVICE_UNAVAILABLE = "Service unavailable"
 const val RECOURSE_NOT_FOUND = "Recourse Not Found"
 const val TABLE_USERS = "table_users"
 const val DATABASE_USERS = "database_users"
+const val SAVE_USER = "Save User"
+const val DELETE_USER = "Delete User"
 
 var USERNAME = ""

@@ -88,7 +88,7 @@ class MainFragment : Fragment() {
         inflater.inflate(R.menu.menu_main,menu)
         val favorite = menu.findItem(R.id.favoriteMenu_main)
         favorite.setOnMenuItemClickListener {
-            Snackbar.make(binding.root,"Favorite",Snackbar.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_main_to_favorite)
             true
         }
         super.onCreateOptionsMenu(menu, inflater)

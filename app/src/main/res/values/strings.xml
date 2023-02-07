@@ -9,4 +9,5 @@
     <string name="follower">Follower</string>
     <string name="following">Following</string>
     <string name="repository">Repository</string>
+    <string name="empty_usersList">No Users Have Been Saved</string>
 </resources>

@@ -15,9 +15,7 @@ import com.example.githubusers.R
 import com.example.githubusers.data.database.UserEntity
 import com.example.githubusers.databinding.FragmentDetailBinding
 import com.example.githubusers.util.NetworkResult
-import com.example.githubusers.util.const.FOLLOWER
-import com.example.githubusers.util.const.FOLLOWING
-import com.example.githubusers.util.const.USERNAME
+import com.example.githubusers.util.const.*
 import com.example.githubusers.viewmodel.detail.DetailViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
@@ -119,10 +117,10 @@ class DetailFragment : Fragment() {
         binding.detailFloat.setOnClickListener {
             if (isFavorite) {
                 detailViewModel.deleteFood(entity)
-                Snackbar.make(binding.root, "Delete User", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, DELETE_USER, Snackbar.LENGTH_SHORT).show()
             } else {
                 detailViewModel.saveFood(entity)
-                Snackbar.make(binding.root, "Save User", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.root, SAVE_USER, Snackbar.LENGTH_SHORT).show()
             }
         }
         //set name toolbar
@@ -134,7 +132,7 @@ class DetailFragment : Fragment() {
         inflater.inflate(R.menu.menu_detail, menu)
         val favorite = menu.findItem(R.id.favoriteMenu_detail)
         favorite.setOnMenuItemClickListener {
-            Snackbar.make(binding.root, "Favorite", Snackbar.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_main_to_favorite)
             true
         }
         super.onCreateOptionsMenu(menu, inflater)

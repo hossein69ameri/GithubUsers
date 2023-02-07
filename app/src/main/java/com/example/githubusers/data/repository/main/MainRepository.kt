@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class MainRepository @Inject constructor(private val apiServices: ApiServices) {
-
+    //search users
     suspend fun searchUsers(query: String): Flow<NetworkResult<ResponseUsers>> {
         return flow {
             if (apiServices.searchUsers(query).isSuccessful) {

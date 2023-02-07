@@ -52,11 +52,7 @@ class FollowingFragment : Fragment() {
                             }
                         }
                         NetworkResult.Status.ERROR -> {
-                            Toast.makeText(
-                                requireContext(),
-                                it.message.toString(),
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
