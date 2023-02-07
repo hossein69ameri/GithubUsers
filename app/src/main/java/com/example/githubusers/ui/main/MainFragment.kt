@@ -78,7 +78,7 @@ class MainFragment : Fragment() {
         }
 
         mainAdapter.setOnItemClickListener {
-            val directions = MainFragmentDirections.actionMainFragmentToDetailFragment(it.login.toString())
+            val directions = MainFragmentDirections.actionMainFragmentToDetailFragment(it.login.toString(),it.id!!.toInt())
             findNavController().navigate(directions)
         }
     }

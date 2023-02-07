@@ -31,6 +31,9 @@
         <argument
             android:name="detail_username"
             app:argType="string" />
+        <argument
+            android:name="userID"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
