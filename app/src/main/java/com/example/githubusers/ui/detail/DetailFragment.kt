@@ -1,6 +1,7 @@
 package com.example.githubusers.ui.detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
@@ -29,7 +30,6 @@ class DetailFragment : Fragment() {
     private val detailViewModel: DetailViewModel by viewModels()
     private val args: DetailFragmentArgs by navArgs()
     private var userName = ""
-    private var profile = ""
     private var usernameID = 0
     private var isFavorite = false
 
@@ -55,9 +55,8 @@ class DetailFragment : Fragment() {
         (activity as AppCompatActivity).setSupportActionBar(binding.toolbarDetail)
         binding.toolbarDetail.apply {
             setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-            setNavigationOnClickListener {
-                findNavController().navigateUp()
-            }
+            setNavigationOnClickListener { findNavController().navigateUp() }
+            title = "$userName's Profile"
         }
         //init tabLayout an viewPager
         val tabTitle = arrayOf(FOLLOWER, FOLLOWING)
@@ -83,7 +82,6 @@ class DetailFragment : Fragment() {
                                 binding.apply {
                                     imageDetail.load(itData.avatarUrl)
                                     detailName.text = itData.name
-                                    profile = itData.name.toString()
                                     detailBio.text = itData.bio
                                     detailNumberFollower.text = itData.followers.toString()
                                     detailNumberFollowing.text = itData.following.toString()
@@ -124,8 +122,6 @@ class DetailFragment : Fragment() {
                 Snackbar.make(binding.root, SAVE_USER, Snackbar.LENGTH_SHORT).show()
             }
         }
-        //set name toolbar
-        binding.toolbarDetail.title = profile
     }
 
     @Deprecated("Deprecated in Java")
