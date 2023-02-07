@@ -9,5 +9,7 @@ const val NOT_MODIFIED = "Not modified"
 const val VALIDATION_FAILED = "Validation failed, or the endpoint has been spammed."
 const val SERVICE_UNAVAILABLE = "Service unavailable"
 const val RECOURSE_NOT_FOUND = "Recourse Not Found"
+const val TABLE_USERS = "table_users"
+const val DATABASE_USERS = "database_users"
 
 var USERNAME = ""
