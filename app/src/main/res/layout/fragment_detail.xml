@@ -1,218 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.detail.DetailFragment">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar_detail"
+
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/eggPlant"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu_detail"
-        app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-        app:navigationIconTint="@color/lightGray"
-        app:title="Profile Name"
-        app:titleTextColor="@color/lightGray" />
+        android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/eggPlant"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_detail">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout_image"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@id/container"
-            app:layout_constraintStart_toStartOf="@id/container"
-            app:layout_constraintTop_toTopOf="@id/container">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                app:cardCornerRadius="100dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/image_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:background="@drawable/bg_circle"
-                    android:scaleType="centerCrop"
-                    tools:src="@tools:sample/backgrounds/scenic" />
-
-            </androidx.cardview.widget.CardView>
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout_names"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12sp"
-            app:layout_constraintEnd_toEndOf="@id/container"
-            app:layout_constraintStart_toStartOf="@id/container"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_image">
-
-            <TextView
-                android:id="@+id/detail_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/lightGray"
-                android:textSize="22sp"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:gravity="center"
-                app:layout_constraintEnd_toEndOf="@id/constraintLayout_names"
-                app:layout_constraintStart_toStartOf="@id/constraintLayout_names"
-                app:layout_constraintTop_toTopOf="@id/constraintLayout_names"
-                tools:text="Hossein Ameri" />
-
-            <TextView
-                android:id="@+id/detail_bio"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/lightGray"
-                android:textSize="18sp"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:gravity="center"
-                app:layout_constraintEnd_toEndOf="@+id/detail_name"
-                app:layout_constraintStart_toStartOf="@+id/detail_name"
-                app:layout_constraintTop_toBottomOf="@id/detail_name"
-                tools:text="Android Developer" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12sp"
-            android:background="@drawable/bg_rounded"
-            android:padding="12sp"
-            app:layout_constraintEnd_toEndOf="@id/container"
-            app:layout_constraintStart_toStartOf="@id/container"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_names">
-
-            <TextView
-                android:id="@+id/detail_follower"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/follower"
-                android:textColor="@color/eggPlant"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/detail_following"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@id/constraintLayout_status"
-                app:layout_constraintTop_toTopOf="@id/constraintLayout_status" />
-
-            <TextView
-                android:id="@+id/detail_number_follower"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/eggPlant"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/detail_follower"
-                app:layout_constraintStart_toStartOf="@+id/detail_follower"
-                app:layout_constraintTop_toBottomOf="@+id/detail_follower"
-                tools:text="4" />
-
-            <TextView
-                android:id="@+id/detail_following"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/following"
-                android:textColor="@color/eggPlant"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/detail_repository"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/detail_follower"
-                app:layout_constraintTop_toTopOf="@id/constraintLayout_status" />
-
-            <TextView
-                android:id="@+id/detail_number_following"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/eggPlant"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/detail_following"
-                app:layout_constraintStart_toStartOf="@+id/detail_following"
-                app:layout_constraintTop_toBottomOf="@+id/detail_following"
-                tools:text="4" />
-
-            <TextView
-                android:id="@+id/detail_repository"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/repository"
-                android:textColor="@color/eggPlant"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/constraintLayout_status"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/detail_following"
-                app:layout_constraintTop_toTopOf="@id/constraintLayout_status" />
-
-            <TextView
-                android:id="@+id/detail_number_repository"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/eggPlant"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/detail_repository"
-                app:layout_constraintStart_toStartOf="@+id/detail_repository"
-                app:layout_constraintTop_toBottomOf="@+id/detail_repository"
-                tools:text="4" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/detail_tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12sp"
-            app:tabBackground="@drawable/bg_tab_selector"
+            android:layout_height="390dp"
+            app:titleEnabled="false"
             android:background="@color/eggPlant"
-            app:tabSelectedTextColor="@color/eggPlant"
-            app:tabTextColor="@color/lightGray"
-            app:tabIndicatorHeight="0dp"
-            app:layout_constraintBottom_toBottomOf="@id/container"
-            app:layout_constraintEnd_toEndOf="@id/container"
-            app:layout_constraintStart_toStartOf="@id/container"
-            app:layout_constraintTop_toBottomOf="@id/constraintLayout_status" />
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="56dp"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/include_image"
+                    app:layout_collapseMode="parallax"
+                    layout="@layout/item_image_profile"/>
+                <include
+                    android:id="@+id/include_name"
+                    app:layout_collapseMode="parallax"
+                    layout="@layout/item_name_bio"/>
+
+                <include
+                    android:id="@+id/include_status"
+                    app:layout_collapseMode="parallax"
+                    layout="@layout/item_status"/>
+
+
+            </LinearLayout>
+
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_detail"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                android:background="@color/eggPlant"
+                app:menu="@menu/menu_detail"
+                android:layout_marginBottom="48dp"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:navigationIconTint="@color/lightGray"
+                app:titleTextColor="@color/lightGray" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/detail_tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/eggPlant"
+                app:tabBackground="@drawable/bg_tab_selector"
+                app:tabIndicatorHeight="0dp"
+                android:layout_gravity="bottom"
+                app:tabSelectedTextColor="@color/eggPlant"
+                app:tabTextColor="@color/lightGray" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/detail_viewPager2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/detail_float"
@@ -222,8 +82,8 @@
         android:layout_marginBottom="16sp"
         android:src="@drawable/ic_baseline_favorite_24"
         app:tint="@color/lightPink"
+        android:layout_gravity="bottom|end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,5 +1,6 @@
 package com.example.githubusers.ui.detail
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -41,6 +42,7 @@ class DetailFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //get userName
@@ -63,6 +65,9 @@ class DetailFragment : Fragment() {
         val pagerAdapter = PagerAdapter(requireActivity().supportFragmentManager, lifecycle)
         binding.detailViewPager2.adapter = pagerAdapter
         TabLayoutMediator(binding.detailTabLayout, binding.detailViewPager2) { tab, position -> tab.text = tabTitle[position] }.attach()
+//        binding.collapsingToolbar.setExpandedTitleColor(android.R.color.transparent)
+//        binding.collapsingToolbar.title = "$userName's Profile"
+//        binding.collapsingToolbar.setCollapsedTitleTextColor(R.color.lightGray)
         //display detail user
         lifecycleScope.launchWhenCreated {
             detailViewModel.stateDetail.collectLatest {
@@ -80,12 +85,12 @@ class DetailFragment : Fragment() {
                                 entity.location = itData.location.toString()
                                 entity.repo = itData.publicRepos.toString()
                                 binding.apply {
-                                    imageDetail.load(itData.avatarUrl)
-                                    detailName.text = itData.name
-                                    detailBio.text = itData.bio
-                                    detailNumberFollower.text = itData.followers.toString()
-                                    detailNumberFollowing.text = itData.following.toString()
-                                    detailNumberRepository.text = itData.publicRepos.toString()
+                                    includeImage.imageDetail.load(itData.avatarUrl)
+                                    includeName.detailName.text = itData.name
+                                    includeName.detailBio.text = itData.bio
+                                    includeStatus.detailNumberFollower.text = itData.followers.toString()
+                                    includeStatus.detailNumberFollowing.text = itData.following.toString()
+                                    includeStatus.detailNumberRepository.text = itData.publicRepos.toString()
                                 }
                             }
                         }
