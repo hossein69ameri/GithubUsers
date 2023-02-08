@@ -4,7 +4,7 @@ GitHubUsers is a sample Android project using [GitHub Rest API](https://docs.git
 Using this app you can search for users and See the details of a user and add him to your favorites
 # Screen Shot
 <img src="https://user-images.githubusercontent.com/103646893/217639387-23f908e5-9ef5-4d2f-bce4-424bf6826189.png" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200" height="400" /> | <img src="https://user-images.githubusercontent.com/103646893/217641998-c1afdb6d-cd56-451e-af4f-e9a80f61ad43.png" width="200" height="400" />
- | <img src="https://user-images.githubusercontent.com/103646893/217642911-6476b2b5-a76d-4818-8bf4-3f07abdcbb04.png" width="200" height="400" /> | <img src="https://user-images.githubusercontent.com/103646893/217642707-31ac1413-9d0e-4003-8f07-f3bfdeba5019.png" width="200" height="400" />
+ | <img src="https://user-images.githubusercontent.com/103646893/217642911-6476b2b5-a76d-4818-8bf4-3f07abdcbb04.png" width="200" height="400" /> | <img src="https://user-images.githubusercontent.com/103646893/217642707-31ac1413-9d0e-4003-8f07-f3bfdeba5019.png" width="200" height="400" />| <img src="https://user-images.githubusercontent.com/103646893/217645468-9f12929a-5749-48df-b2eb-d776789c3fbc.png" width="200" height="400" />
 
 # Features
 100% Kotlin
