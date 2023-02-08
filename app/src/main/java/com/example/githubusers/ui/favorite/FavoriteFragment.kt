@@ -52,12 +52,13 @@ class FavoriteFragment : Fragment() {
                 if (it != null) {
                     it.data?.let { it1 -> favoriteAdapter.setData(it1) }
                 }
-                binding.favoriteRecycler.apply {
-                    layoutManager = LinearLayoutManager(requireContext())
-                    adapter = favoriteAdapter
-
-                }
             }
+        }
+        //setup recycler
+        binding.favoriteRecycler.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = favoriteAdapter
+
         }
         //click
         favoriteAdapter.setOnItemClickListener {

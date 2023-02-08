@@ -51,7 +51,6 @@ class FollowerFragment : Fragment() {
                         NetworkResult.Status.SUCCESS -> {
                             if (it.data != null) {
                                     followerAdapter.setData(it.data)
-                                    binding.recyclerFollower.setupRecyclerView(LinearLayoutManager(requireContext()), followerAdapter)
                             }
                         }
                         NetworkResult.Status.ERROR -> {
@@ -61,6 +60,8 @@ class FollowerFragment : Fragment() {
                 }
             }
         }
+        //setup recycler
+        binding.recyclerFollower.setupRecyclerView(LinearLayoutManager(requireContext()), followerAdapter)
         //click
         followerAdapter.setOnItemClickListener {
             val direction = MainFragmentDirections.actionMainFragmentToDetailFragment(it.login.toString(),it.id!!.toInt())
