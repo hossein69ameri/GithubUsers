@@ -136,30 +136,31 @@
                     android:id="@+id/icon_organization"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="12sp"
                     android:src="@drawable/ic_baseline_corporate_fare_24"
-                    app:layout_constraintBottom_toBottomOf="@id/constraint_organization"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/item_favorite_organization"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/constraint_organization"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/lightGray" />
 
                 <TextView
                     android:id="@+id/item_favorite_organization"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8sp"
-                    android:textColor="@color/lightGray"
-                    android:textSize="20sp"
                     android:ellipsize="end"
                     android:gravity="center"
+                    android:maxWidth="100dp"
                     android:maxLines="1"
-                    app:layout_constraintBottom_toBottomOf="@id/icon_organization"
+                    android:textColor="@color/lightGray"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/icon_organization"
-                    app:layout_constraintTop_toTopOf="@id/icon_organization"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="Snapp!" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

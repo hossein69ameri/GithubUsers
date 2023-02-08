@@ -42,15 +42,19 @@ class FavoriteAdapter @Inject constructor() : RecyclerView.Adapter<FavoriteAdapt
                 if (item.location.isNullOrEmpty().not()){
                     itemFavoriteLocation.text = item.location
                     itemFavoriteLocation.visibility = View.VISIBLE
+                    iconLocation.visibility = View.VISIBLE
                 }else{
-                    itemFavoriteLocation.visibility = View.GONE
+                    itemFavoriteLocation.visibility = View.INVISIBLE
+                    iconLocation.visibility = View.INVISIBLE
                 }
 
                 if (item.bio.isNullOrEmpty().not()){
                     itemFavoriteOrganization.text = item.bio
                     itemFavoriteOrganization.visibility = View.VISIBLE
+                    iconOrganization.visibility = View.VISIBLE
                 }else{
-                    itemFavoriteOrganization.visibility = View.GONE
+                    itemFavoriteOrganization.visibility = View.INVISIBLE
+                    iconOrganization.visibility = View.INVISIBLE
                 }
                 itemFavoriteName.text = item.name
                 itemNumberFavoriteFollower.text = item.follower

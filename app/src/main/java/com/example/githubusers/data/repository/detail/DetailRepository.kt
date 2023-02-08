@@ -7,7 +7,6 @@ import com.example.githubusers.data.model.ResponseFollowers
 import com.example.githubusers.data.model.ResponseFollowing
 import com.example.githubusers.data.remote.ApiServices
 import com.example.githubusers.util.NetworkResult
-import com.example.githubusers.util.const.RECOURSE_NOT_FOUND
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

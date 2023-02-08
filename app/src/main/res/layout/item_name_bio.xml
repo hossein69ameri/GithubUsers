@@ -25,11 +25,12 @@
 
     <TextView
         android:id="@+id/detail_bio"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="1"
+        android:maxWidth="250dp"
         android:textColor="@color/lightGray"
         android:textSize="18sp"
         android:layout_marginTop="10dp"

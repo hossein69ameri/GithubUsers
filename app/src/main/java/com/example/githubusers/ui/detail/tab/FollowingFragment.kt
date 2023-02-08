@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubusers.R
 import com.example.githubusers.databinding.FragmentFollowingBinding
 import com.example.githubusers.ui.detail.DetailFragmentArgs
+import com.example.githubusers.ui.main.MainFragmentDirections
 import com.example.githubusers.util.NetworkResult
 import com.example.githubusers.util.const.USERNAME
 import com.example.githubusers.util.extention.setupRecyclerView
@@ -57,6 +59,11 @@ class FollowingFragment : Fragment() {
                     }
                 }
             }
+        }
+        //click
+        followingAdapter.setOnItemClickListener {
+            val direction = MainFragmentDirections.actionMainFragmentToDetailFragment(it.login.toString(),it.id!!.toInt())
+            findNavController().navigate(direction)
         }
     }
 }

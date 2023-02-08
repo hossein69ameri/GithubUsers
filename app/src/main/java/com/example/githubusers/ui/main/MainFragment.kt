@@ -59,7 +59,6 @@ class MainFragment : Fragment() {
                         NetworkResult.Status.SUCCESS -> {
                             if (it.data != null) {
                                 it.data.items?.let { itData ->
-                                    Log.e("TAG", "${itData.size}", )
                                     mainAdapter.setData(itData)
                                     binding.recyclerMain.setupRecyclerView(LinearLayoutManager(requireContext()), mainAdapter)
                                 }

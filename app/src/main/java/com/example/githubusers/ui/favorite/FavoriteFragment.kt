@@ -83,11 +83,6 @@ class FavoriteFragment : Fragment() {
     @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_favorite, menu)
-        val setting_menu = menu.findItem(R.id.settingMenu)
-        setting_menu.setOnMenuItemClickListener {
-            Snackbar.make(binding.root, "Setting menu", Snackbar.LENGTH_SHORT).show()
-            true
-        }
         super.onCreateOptionsMenu(menu, inflater)
     }
 

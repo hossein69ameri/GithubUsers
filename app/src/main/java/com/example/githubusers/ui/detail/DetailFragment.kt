@@ -65,9 +65,6 @@ class DetailFragment : Fragment() {
         val pagerAdapter = PagerAdapter(requireActivity().supportFragmentManager, lifecycle)
         binding.detailViewPager2.adapter = pagerAdapter
         TabLayoutMediator(binding.detailTabLayout, binding.detailViewPager2) { tab, position -> tab.text = tabTitle[position] }.attach()
-//        binding.collapsingToolbar.setExpandedTitleColor(android.R.color.transparent)
-//        binding.collapsingToolbar.title = "$userName's Profile"
-//        binding.collapsingToolbar.setCollapsedTitleTextColor(R.color.lightGray)
         //display detail user
         lifecycleScope.launchWhenCreated {
             detailViewModel.stateDetail.collectLatest {
@@ -77,12 +74,12 @@ class DetailFragment : Fragment() {
                             it.data?.let { itData ->
                                 entity.id = itData.id!!.toInt()
                                 entity.login = itData.login.toString()
-                                entity.bio = itData.bio.toString()
+                                entity.bio = itData.bio
                                 entity.name = itData.name.toString()
                                 entity.following = itData.following.toString()
                                 entity.follower = itData.followers.toString()
                                 entity.image = itData.avatarUrl.toString()
-                                entity.location = itData.location.toString()
+                                entity.location = itData.location
                                 entity.repo = itData.publicRepos.toString()
                                 binding.apply {
                                     includeImage.imageDetail.load(itData.avatarUrl)
