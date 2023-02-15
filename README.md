@@ -1,4 +1,4 @@
-# MovieAPI
+# GitHubUsers
 GitHubUsers is a sample Android project using [GitHub Rest API](https://docs.github.com/en/rest?apiVersion=2022-11-28) based on MVVM architecture. It showcases the latest Android tech stacks with well-designed architecture and best practices
 
 Using this app you can search for users and See the details of a user and add him to your favorites
